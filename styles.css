@@ -1,0 +1,174 @@
+:root {
+  --dark-bg: #1d1d1d;
+  --dark-text: #ffffff;
+  --light-bg: #c6c6c6;
+  --light-text: #000000;
+  --minecraft-green: #54fc54;
+  --minecraft-gray: #404040;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "VT323", monospace;
+}
+
+body {
+  transition: background-color 0.3s, color 0.3s;
+  padding: 20px;
+}
+
+body.dark-mode {
+  background-color: var(--dark-bg);
+  color: var(--dark-text);
+}
+
+body.light-mode {
+  background-color: var(--light-bg);
+  color: var(--light-text);
+}
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  font-size: 3em;
+  margin-bottom: 30px;
+  text-shadow: 2px 2px var(--minecraft-gray);
+}
+
+.minecraft-btn {
+  background-color: var(--minecraft-gray);
+  border: 3px solid #000000;
+  color: white;
+  padding: 10px 15px;
+  font-size: 1.2em;
+  cursor: pointer;
+  outline: none;
+  image-rendering: pixelated;
+}
+
+.minecraft-btn:hover {
+  background-color: var(--minecraft-green);
+}
+
+.todo-input {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+#taskInput {
+  flex: 1;
+  padding: 10px;
+  font-size: 1.2em;
+  background-color: var(--minecraft-gray);
+  border: 3px solid #000000;
+  color: white;
+}
+
+.task-list {
+  list-style: none;
+}
+
+.task-item {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: var(--minecraft-gray);
+  border: 3px solid #000000;
+}
+
+.task-item span {
+  flex: 1;
+  color: white;
+  font-size: 1.2em;
+}
+
+.task-item.completed span {
+  text-decoration: line-through;
+  color: var(--minecraft-green);
+}
+
+.delete-btn {
+  background-color: #ff0000;
+  color: white;
+  border: 2px solid #000000;
+  padding: 5px 10px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.minecraft-sword {
+  position: absolute;
+  width: 120px;
+  height: 60px;
+  background-image: url("./assets/minecraft-sword.jpg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  pointer-events: none;
+  z-index: 1000;
+  transform: translateY(-50%) scaleX(-1);
+  filter: contrast(1.2) brightness(1.1);
+  mix-blend-mode: darken;
+  right: 5px;
+  top: 50%;
+}
+
+@keyframes swordWiggle {
+  0% {
+    transform: translate(-50%, -50%) scaleX(-1) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  20% {
+    transform: translate(-50%, -50%) scaleX(-1) rotate(-10deg);
+  }
+  40% {
+    transform: translate(-50%, -50%) scaleX(-1) rotate(10deg);
+  }
+  60% {
+    transform: translate(-50%, -50%) scaleX(-1) rotate(-10deg);
+  }
+  80% {
+    transform: translate(-50%, -50%) scaleX(-1) rotate(10deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) scaleX(-1) rotate(0deg);
+    opacity: 0;
+  }
+}
+
+.slashing {
+  animation: fadeOut 1.5s ease-out;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Apply to all interactive elements */
+button,
+input,
+a,
+.delete-btn {
+  cursor: url("./assets/minecraft-sword.jpg") 16 16, pointer;
+}
